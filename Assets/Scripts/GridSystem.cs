@@ -13,9 +13,10 @@ class GridSystem
     private Dictionary<List<(int, int)>, string> spellBook;
     private bool activated;
     public List<List<(int, int)>> grid;
+    public List<List<GameObject>> objectGrid;
     public (int, int) startPoint;
 
-    public GridSystem(int rows = 3, int cols = 3)
+    public GridSystem(int rows = 3, int cols = 3, List<List<GameObject>>)
     {
         this.spellBook = new Dictionary<List<(int, int)>, string>
         {
@@ -28,11 +29,14 @@ class GridSystem
         for (int i = 0; i < rows; i++)
         {
             List<(int, int)> sublist = new List<(int, int)>();
+            List<GameObject> sublist_object = new List<GameObject>();
             for (int j = 0; j < cols; j++)
             {
                 sublist.Add((-1, -1));
+                sublist_object.Add(GameObject);
             }
             this.grid.Add(sublist);
+            this.objectGrid.Add(sublist_object);
         }
     }
 
