@@ -16,7 +16,7 @@ class GridSystem
     public List<List<GameObject>> objectGrid;
     public (int, int) startPoint;
 
-    public GridSystem(int rows = 3, int cols = 3, List<List<GameObject>> objectGridInput = null)
+    public GridSystem(List<List<GameObject>> objectGridInput, int rows = 3, int cols = 3)
     {
         this.spellBook = new Dictionary<List<(int, int)>, string>
         {
@@ -26,21 +26,16 @@ class GridSystem
         this.activated = false;
         this.startPoint = (-1, -1);
         this.grid = new List<List<(int, int)>>();
-        this.objectGrid = objectGridInput ?? new List<List<GameObject>>();
+        this.objectGrid = objectGridInput;
 
         for (int i = 0; i < rows; i++)
         {
             List<(int, int)> sublist = new List<(int, int)>();
-            List<GameObject> sublist_object = new List<GameObject>();
             for (int j = 0; j < cols; j++)
             {
                 sublist.Add((-1, -1));
-
-                sublist_object.Add(null);
             }
-
             this.grid.Add(sublist);
-            this.objectGrid.Add(sublist_object);
         }
     }
 
