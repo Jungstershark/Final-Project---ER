@@ -15,6 +15,8 @@ class GridSystem
     public List<List<(int, int)>> grid;
     public List<List<GameObject>> objectGrid;
     public (int, int) startPoint;
+    public int totalRows;
+    public int totalCols;
 
     public GridSystem(List<List<GameObject>> objectGridInput, int rows = 3, int cols = 3)
     {
@@ -27,6 +29,8 @@ class GridSystem
         this.startPoint = (-1, -1);
         this.grid = new List<List<(int, int)>>();
         this.objectGrid = objectGridInput;
+        this.totalRows = rows;
+        this.totalCols = cols;
 
         for (int i = 0; i < rows; i++)
         {
@@ -63,15 +67,29 @@ class GridSystem
         }
     }
 
+    private bool validatePointBounds(int row, int col)
+    {
+        if (row > this.totalRows - 1 || col > this.totalCols - 1)
+        {
+            return false;
+        }
+        return true;
+    }
+
     public void drawLine((int, int) from, (int, int) to)
     {
         // add a line to the combination
-        this.grid[from.Item1][from.Item2] = to;
-        if (this.startPoint == (-1, -1))
-        {
-            this.startPoint = from;
+
+        if (this.validatePointBounds(to.Item1, to.Item2) && this.validatePointBounds(from.Item1, from.Item2)) {
+            if (!from.Equals(to)) {
+                this.grid[from.Item1][from.Item2] = to;
+                if (this.startPoint == (-1, -1))
+                {
+                    this.startPoint = from;
+                }
+                Debug.Log($"Line drawn from {from} to {to}");
+            }
         }
-        Debug.Log($"Line drawn from {from} to {to}");
     }
 
     public void removeLine((int, int) from, (int, int) to)
