@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.HID;
 using UnityEngine.UIElements;
 
@@ -38,6 +40,13 @@ public class RightHandInteractor : MonoBehaviour {
     }
 
     public GameObject rayCylinder;
+    public GameObject spellTable;
+    public UnityEvent resetOrbs;
+    InputAction openSpellTable;
+    InputAction closeSpellTable;
+    public UnityEvent OpenSpellTableEvent;
+    public UnityEvent CloseSpellTableEvent;
+
     // public GameObject debugSphere;
     public float rayLength = 2.0f;
 
@@ -67,12 +76,25 @@ public class RightHandInteractor : MonoBehaviour {
 
 
 
-
     //  Task 1. Construct the ray
     //  TODO: Implement the function to construct a ray using the wristTransform's position and orientation.
     public Ray ConstructRay(Transform wristTransform) {
 
         return new Ray(wristTransform.position, wristTransform.forward);
+
+    }
+
+    public void TriggerSpellTable()
+    {
+        spellTable.transform.position = wristTransform.position + wristTransform.forward * 0.5f;
+        spellTable.transform.rotation = Quaternion.LookRotation(-wristTransform.up, wristTransform.forward);
+    }
+
+    public void CloseSpellTable()
+    {
+        spellTable.transform.position = new Vector3(0, 0, 0);
+        spellTable.transform.rotation = Quaternion.identity;
+        resetOrbs.Invoke();
 
     }
 
@@ -189,10 +211,25 @@ public class RightHandInteractor : MonoBehaviour {
 
     void Start() {
         SetColor(Color.blue, rayCylinder);
+        openSpellTable = InputSystem.actions.FindAction("OpenSpellTable");
+        closeSpellTable = InputSystem.actions.FindAction("CloseSpellTable");
         // StartCoroutine(ReportWristPosition());
     }
 
     void Update() {
+        bool SpellTableTriggered = openSpellTable.IsPressed();
+        bool SpellTableClosed = closeSpellTable.IsPressed();
+
+        if (SpellTableTriggered)
+        {
+            OpenSpellTableEvent.Invoke();
+        }
+        if (SpellTableClosed)
+        {
+            CloseSpellTableEvent.Invoke();
+        }
+
+
         if (isControling) {
 
             Vector3 currentGrabPoint = handOffset + GrabPoint;
