@@ -1473,7 +1473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _monoscopic: 0
   _sharpenType: 0
-  _enableDynamicResolution: 0
+  _enableDynamicResolution: 1
   minDynamicResolutionScale: 1
   maxDynamicResolutionScale: 1
   quest2MinDynamicResolutionScale: 0.7
@@ -2642,6 +2642,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2846e8e164edcf41afc537c9a2de94f, type: 3}
+--- !u!114 &658819114 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4423976141364552412, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+  m_PrefabInstance: {fileID: 1155926147}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bffe606b408599b4fad696ddc889a943, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &670328362
 GameObject:
   m_ObjectHideFlags: 0
@@ -2875,7 +2886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Oculus.Interaction::Oculus.Interaction.PoseDetection.TransformRecognizerActiveState
   _hand: {fileID: 679424459}
-  _transformFeatureStateProvider: {fileID: 0}
+  _transformFeatureStateProvider: {fileID: 658819114}
   _transformFeatureConfigs:
     _values:
     - _mode: 0
@@ -2885,7 +2896,7 @@ MonoBehaviour:
     PositionOffset: {x: 0, y: 0, z: 0}
     RotationOffset: {x: 0, y: 0, z: 0}
     UpVectorType: 0
-    FeatureThresholds: {fileID: 0}
+    FeatureThresholds: {fileID: 11400000, guid: 039cf5a7424e1e046b79287e9375cf09, type: 2}
 --- !u!114 &679424458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2898,8 +2909,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08f7cfb1f9629da4494ac0840f3a3cfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Oculus.Interaction::Oculus.Interaction.PoseDetection.ShapeRecognizerActiveState
-  _hand: {fileID: 2128651398}
-  _fingerFeatureStateProvider: {fileID: 0}
+  _hand: {fileID: 1155926153}
+  _fingerFeatureStateProvider: {fileID: 1155926154}
   _shapes:
   - {fileID: 11400000, guid: 86f4972e4cab310409f2e082703bd0b8, type: 2}
 --- !u!114 &679424459
@@ -2914,7 +2925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b14164f8f23faae4293baeb84485b3d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Oculus.Interaction::Oculus.Interaction.Input.HandRef
-  _hand: {fileID: 2128651398}
+  _hand: {fileID: 1155926153}
 --- !u!1001 &684944907
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13331,17 +13342,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71703c0235963c440928e7bc660d45de, type: 3}
---- !u!114 &2128651398 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1528346310, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
-  m_PrefabInstance: {fileID: 1155926147}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7daff26e66096cd49a253ca3ab592c03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2130887377
 PrefabInstance:
   m_ObjectHideFlags: 0
