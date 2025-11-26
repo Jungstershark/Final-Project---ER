@@ -64,6 +64,8 @@ public class RightHandInteractor : MonoBehaviour {
     public GameObject visualHand;
 
     public Vector3 hitPointOffset;
+    
+    public bool isGridSet;
 
     private Quaternion OriginalObjectRotation;
     private Quaternion OriginalHandRotation;
@@ -210,6 +212,7 @@ public class RightHandInteractor : MonoBehaviour {
 
 
     void Start() {
+        bool isGridSet = false;
         SetColor(Color.blue, rayCylinder);
         openSpellTable = InputSystem.actions.FindAction("OpenSpellTable");
         closeSpellTable = InputSystem.actions.FindAction("CloseSpellTable");
@@ -217,9 +220,25 @@ public class RightHandInteractor : MonoBehaviour {
     }
 
     void Update() {
-        bool SpellTableTriggered = openSpellTable.IsPressed();
-        bool SpellTableClosed = closeSpellTable.IsPressed();
+        bool SpellTableTriggered = openSpellTable.WasPressedThisFrame();
+        bool SpellTableClosed = closeSpellTable.WasPressedThisFrame();
 
+        // TEMPORARY GRID OPEN STATE MACHINE FOR CONTROLLER
+        if (SpellTableTriggered)
+        {
+            if (isGridSet)
+            {
+                CloseSpellTableEvent.Invoke();
+                isGridSet = false;
+            }
+            else
+            {
+                OpenSpellTableEvent.Invoke();
+                isGridSet = true;
+            }
+        }
+
+        /*
         if (SpellTableTriggered)
         {
             OpenSpellTableEvent.Invoke();
@@ -228,6 +247,7 @@ public class RightHandInteractor : MonoBehaviour {
         {
             CloseSpellTableEvent.Invoke();
         }
+        */
 
 
         if (isControling) {

@@ -505,8 +505,8 @@
                 },
                 {
                     "name": "",
-                    "id": "fd23da6d-c0d1-44ac-8284-1a2ce9336cfa",
-                    "path": "",
+                    "id": "1f0a9774-e8fb-45f6-9fda-cf49671a081b",
+                    "path": "<OculusTouchController>/triggerPressed",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -521,6 +521,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse;XR",
+                    "action": "CloseSpellTable",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0eb64db8-42cf-4bcb-a705-0a2f049976d6",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "CloseSpellTable",
                     "isComposite": false,
                     "isPartOfComposite": false
