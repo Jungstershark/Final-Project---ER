@@ -22,7 +22,9 @@ class GridSystem
     {
         this.spellBook = new Dictionary<List<(int, int)>, string>
         {
-            { new List<(int, int)> { (0, 0), (0, 1), (0, 2) }, "Test 1" }
+            { new List<(int, int)> { (0, 1), (1, 0), (1, 1), (1, 2), (2, 1) }, "Shatter" },
+            { new List<(int, int)> { (0, 0), (0, 1), (0, 2), (1, 1), (2, 0), (2, 1), (2, 2), (1, 1), (0, 0)}, "Restart" },
+            { new List<(int, int)> { (2, 0), (1, 0), (0, 0), (0, 1), (0, 2), (1, 2), (2, 2) }, "Magnet" }
         };
 
         this.activated = false;
