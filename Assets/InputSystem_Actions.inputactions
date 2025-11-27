@@ -528,7 +528,7 @@
                 {
                     "name": "",
                     "id": "0eb64db8-42cf-4bcb-a705-0a2f049976d6",
-                    "path": "",
+                    "path": "<OculusTouchController>/triggerPressed",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

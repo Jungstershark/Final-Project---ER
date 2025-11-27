@@ -8,17 +8,17 @@ using UnityEngine.UIElements;
 Ini
 */
 
-class GridSystem
+public class GridSystem
 {
-    private Dictionary<List<(int, int)>, string> spellBook;
-    private bool activated;
+    public Dictionary<List<(int, int)>, string> spellBook;
+    public bool activated;
     public List<List<(int, int)>> grid;
-    public List<List<GameObject>> objectGrid;
+    public List<List<GridOrb>> objectGrid;
     public (int, int) startPoint;
     public int totalRows;
     public int totalCols;
 
-    public GridSystem(List<List<GameObject>> objectGridInput, int rows = 3, int cols = 3)
+    public GridSystem(List<List<GridOrb>> objectGridInput, int rows = 3, int cols = 3)
     {
         this.spellBook = new Dictionary<List<(int, int)>, string>
         {
@@ -88,7 +88,9 @@ class GridSystem
                 if (this.startPoint == (-1, -1))
                 {
                     this.startPoint = from;
+                    this.objectGrid[from.Item1][from.Item2].OrbSelected();
                 }
+                this.objectGrid[to.Item1][to.Item2].OrbSelected();
                 Debug.Log($"Line drawn from {from} to {to}");
             }
         }

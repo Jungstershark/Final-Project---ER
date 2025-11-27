@@ -2,6 +2,7 @@ using Oculus.Interaction.Input;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -46,6 +47,7 @@ public class RightHandInteractor : MonoBehaviour {
     InputAction closeSpellTable;
     public UnityEvent OpenSpellTableEvent;
     public UnityEvent CloseSpellTableEvent;
+    public GridSystem gridSystem;
 
     // public GameObject debugSphere;
     public float rayLength = 2.0f;
@@ -217,6 +219,25 @@ public class RightHandInteractor : MonoBehaviour {
         openSpellTable = InputSystem.actions.FindAction("OpenSpellTable");
         closeSpellTable = InputSystem.actions.FindAction("CloseSpellTable");
         // StartCoroutine(ReportWristPosition());
+
+        GameObject[] orb_objects =  GameObject.FindGameObjectsWithTag("SpellTableOrb");
+        GridOrb[] orb_array = new GridOrb[9];
+        Array.Sort(orb_objects, delegate(GameObject x, GameObject y) {return x.name.CompareTo(y.name);});
+        for (int i=0; i<orb_objects.Length; i++) {
+            Debug.Log(orb_objects[i].name);
+            GridOrb temp = new GridOrb(orb_objects[i]);
+            orb_array[i] = temp;
+        }
+        List<List<GridOrb>> objectGrid = new List<List<GridOrb>>();
+        var row1 = orb_array[0..3];
+        objectGrid.Add(row1.ToList());
+        var row2 = orb_array[3..6];
+        objectGrid.Add(row2.ToList());
+        var row3 = orb_array[6..9];
+        objectGrid.Add(row3.ToList());
+
+        this.gridSystem = new GridSystem(objectGrid);
+        this.gridSystem.Test();
     }
 
     void Update() {
@@ -230,11 +251,27 @@ public class RightHandInteractor : MonoBehaviour {
             {
                 CloseSpellTableEvent.Invoke();
                 isGridSet = false;
+                this.gridSystem.activated = false;
             }
             else
             {
                 OpenSpellTableEvent.Invoke();
                 isGridSet = true;
+                this.gridSystem.activated = true;
+            }
+        }
+
+        if (this.gridSystem.activated)
+        {
+            if (Keyboard.current.aKey.wasPressedThisFrame)
+            {
+                this.gridSystem.drawLine((0,1),(1,0));
+                this.gridSystem.drawLine((1,0),(1,1));
+                this.gridSystem.drawLine((1,1),(1,2));
+                this.gridSystem.drawLine((1,2),(2,1));
+                var spell = this.gridSystem.checkSpell();
+                Debug.Log(spell);
+                Debug.Log(this.gridSystem.currentCombination());
             }
         }
 

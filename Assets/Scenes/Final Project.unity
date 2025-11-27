@@ -1520,7 +1520,7 @@ GameObject:
   - component: {fileID: 460690875}
   m_Layer: 0
   m_Name: 12
-  m_TagString: Untagged
+  m_TagString: SpellTableOrb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2072,7 +2072,7 @@ GameObject:
   - component: {fileID: 619333597}
   m_Layer: 0
   m_Name: 11
-  m_TagString: Untagged
+  m_TagString: SpellTableOrb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2959,8 +2959,8 @@ GameObject:
   - component: {fileID: 786069287}
   - component: {fileID: 786069286}
   m_Layer: 0
-  m_Name: 00
-  m_TagString: Untagged
+  m_Name: 20
+  m_TagString: SpellTableOrb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3235,8 +3235,8 @@ GameObject:
   - component: {fileID: 898528708}
   - component: {fileID: 898528707}
   m_Layer: 0
-  m_Name: 21
-  m_TagString: Untagged
+  m_Name: 01
+  m_TagString: SpellTableOrb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4524,8 +4524,8 @@ GameObject:
   - component: {fileID: 1183409132}
   - component: {fileID: 1183409131}
   m_Layer: 0
-  m_Name: 20
-  m_TagString: Untagged
+  m_Name: 00
+  m_TagString: SpellTableOrb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5651,6 +5651,7 @@ MonoBehaviour:
   handOffset: {x: 0, y: 0, z: 0}
   visualHand: {fileID: 2112698671}
   hitPointOffset: {x: 0, y: 0, z: 0}
+  isGridSet: 0
   currentHitObject: {fileID: 0}
   hitPoint: {x: 0, y: 0, z: 0}
   leftHandInteractor: {fileID: 320680773}
@@ -5797,8 +5798,8 @@ GameObject:
   - component: {fileID: 1484269426}
   - component: {fileID: 1484269425}
   m_Layer: 0
-  m_Name: 01
-  m_TagString: Untagged
+  m_Name: 21
+  m_TagString: SpellTableOrb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6620,7 +6621,7 @@ GameObject:
   - component: {fileID: 1653350140}
   m_Layer: 0
   m_Name: 10
-  m_TagString: Untagged
+  m_TagString: SpellTableOrb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6773,8 +6774,8 @@ GameObject:
   - component: {fileID: 1667996032}
   - component: {fileID: 1667996031}
   m_Layer: 0
-  m_Name: 22
-  m_TagString: Untagged
+  m_Name: 02
+  m_TagString: SpellTableOrb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7584,8 +7585,8 @@ GameObject:
   - component: {fileID: 1863823212}
   - component: {fileID: 1863823211}
   m_Layer: 0
-  m_Name: 02
-  m_TagString: Untagged
+  m_Name: 22
+  m_TagString: SpellTableOrb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
